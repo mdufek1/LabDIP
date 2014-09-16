@@ -9,27 +9,21 @@ package dip.lab2;
  * @author your name goes here
  */
 public class BaggageServiceTipCalculator implements TipCalculator{
-    private static final double MIN_BILL = 0.00;
-    private static final double MAX_BILL = 100.00;
+    private static double minBill = 0.00;
+    private static double maxBill = 100.00;
     private static final String BILL_ENTRY_ERR =
-            "Error: bill must be between " + MIN_BILL + " and "
-            + MAX_BILL;
-    private static final double GOOD_RATE = 0.20;
-    private static final double FAIR_RATE = 0.15;
-    private static final double POOR_RATE = 0.10;
-
-    private double baseTipPerBag;
+            "Error: bill must be between " + minBill + " and "
+            + maxBill;
+    private double baseTipPerBag = 1.00;
     private int bagCount;
-
     private ServiceQuality serviceQuality;
 
     public BaggageServiceTipCalculator(ServiceQuality q, int bags) {
         this.setServiceRating(q); // perform validation
         this.setBagCount(bags);
-
-        baseTipPerBag = 1.00; // set default value
     }
 
+    @Override
     public double calculateTip() {
         double tip = 0.00; // always initialize local variables
 
@@ -83,4 +77,21 @@ public class BaggageServiceTipCalculator implements TipCalculator{
         this.baseTipPerBag = baseTipPerBag;
     }
 
+    public static double getMinBill() {
+        return minBill;
+    }
+
+    public static void setMinBill(double minBill) {
+        BaggageServiceTipCalculator.minBill = minBill;
+    }
+
+    public static double getMaxBill() {
+        return maxBill;
+    }
+
+    public static void setMaxBill(double maxBill) {
+        BaggageServiceTipCalculator.maxBill = maxBill;
+    }
+
+    
 }

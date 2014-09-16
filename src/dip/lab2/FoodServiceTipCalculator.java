@@ -9,12 +9,9 @@ package dip.lab2;
  * @author your name goes here
  */
 public class FoodServiceTipCalculator implements TipCalculator {
-    private static final double MIN_BILL = 0.00;
+    private static double minBill = 0.00;
     private static final String BILL_ENTRY_ERR =
-            "Error: bill must be greater than or equal to " + MIN_BILL;
-    private static final double GOOD_RATE = 0.20;
-    private static final double FAIR_RATE = 0.15;
-    private static final double POOR_RATE = 0.10;
+            "Error: bill must be greater than or equal to " + minBill;
 
     private double bill;
 
@@ -44,18 +41,29 @@ public class FoodServiceTipCalculator implements TipCalculator {
         return tip;
     }
 
+    public static double getMinBill() {
+        return minBill;
+    }
+
+    public static void setMinBill(double minBill) {
+        FoodServiceTipCalculator.minBill = minBill;
+    }
+    
+    
     public final void setBill(double billAmt) {
-        if(billAmt < MIN_BILL) {
+        if(billAmt < minBill) {
             throw new IllegalArgumentException(BILL_ENTRY_ERR);
         }
         bill = billAmt;
     }
 
+    @Override
     public final void setServiceRating(ServiceQuality q) {
         // No need to validate because enums provide type safety!
         serviceQuality = q;
     }
 
+    @Override
     public ServiceQuality getServiceQuality() {
         return serviceQuality;
     }
