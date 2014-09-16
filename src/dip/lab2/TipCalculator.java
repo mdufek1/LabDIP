@@ -12,4 +12,6 @@ package dip.lab2;
  */
 public interface TipCalculator {
     public abstract double calculateTip();
+    public abstract void setServiceRating(ServiceQuality q);
+    public abstract ServiceQuality getServiceQuality();
 }
