@@ -6,8 +6,9 @@ package dip.lab1;
  *
  * @author your name goes here
  */
-public class HourlyEmployee extends Employee {
-    
+public class HourlyEmployee implements Employee {
+    private double hourlyRate;
+    private double totalHrsForYear;
     /** default constructor. Is this the best way to go? */
     public HourlyEmployee() {}
 
@@ -20,5 +21,36 @@ public class HourlyEmployee extends Employee {
         setHourlyRate(hourlyRate);
         setTotalHrsForYear(totalHrsForYear);
     }
+    
+    public double getHourlyRate() {
+        return hourlyRate;
+    }
 
+    /**
+     * Is this polymorphic? Should it be? Does it belong here?
+     * @param hourlyRate -- think carefully about this
+     */
+    public void setHourlyRate(double hourlyRate) {
+        this.hourlyRate = hourlyRate;
+    }
+
+    /**
+     * Is this polymorphic? Should it be? Does it belong here?
+     * @return
+     */
+    public double getTotalHrsForYear() {
+        return totalHrsForYear;
+    }
+
+    /**
+     * Is this polymorphic? Should it be? Does it belong here?
+     * @param totalHrsForYear -- think carefully about this
+     */
+    public void setTotalHrsForYear(double totalHrsForYear) {
+        this.totalHrsForYear = totalHrsForYear;
+    }
+    
+    public double getAnnualWages() {
+        return hourlyRate * totalHrsForYear;
+    }
 }
