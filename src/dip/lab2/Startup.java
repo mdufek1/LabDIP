@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  *    high-level class. Did it work? Are the low-level instances
  *    interchangeable? The DIP requires this.
  * 
- * @author your name goes here
+ * @author mdufek1
  */
 public class Startup {
 

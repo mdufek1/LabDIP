@@ -6,7 +6,7 @@ package dip.lab2;
  *
  * Any other best practice violations? Fix them too.
  *
- * @author your name goes here
+ * @author mdufek1
  */
 public class BaggageServiceTipCalculator implements TipCalculator{
     private double minBill = 0.00;
