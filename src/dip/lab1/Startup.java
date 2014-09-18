@@ -6,7 +6,7 @@ import java.text.NumberFormat;
  * Just a start and test class for this program. You may modify this class
  * in any way you see fit.
  *
- * @author jlombardo
+ * @author mdufek1
  */
 public class Startup {
 
@@ -35,8 +35,7 @@ public class Startup {
             nf.format(hr.getEmployeeWages(emp2,TimePeriod.ANNUALLY)));
         
         System.out.println("Employee 3 annual compensation: " +
-            nf.format(hr.getEmployeeWages(emp3,
-            TimePeriod.ANNUALLY)));
+            nf.format(hr.getEmployeeWages(emp3, TimePeriod.ANNUALLY)));
         
     }
 
