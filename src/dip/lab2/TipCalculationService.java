@@ -21,6 +21,6 @@ public class TipCalculationService {
     }
 
     public void processTip(TipCalculator calculator){
-        System.out.println(calculator.calculateTip());
+        System.out.println(calculator.getCalculatedTip());
     }
 }

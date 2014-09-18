@@ -9,13 +9,15 @@ package dip.lab2;
  * @author your name goes here
  */
 public class BaggageServiceTipCalculator implements TipCalculator{
-    private static double minBill = 0.00;
-    private static double maxBill = 100.00;
-    private static final String BILL_ENTRY_ERR =
-            "Error: bill must be between " + minBill + " and "
-            + maxBill;
+    private double minBill = 0.00;
+    private double maxBill = 100.00;
+    private String BILL_ENTRY_ERR =
+            "Error: bill must be greater than or equal to " + minBill;
     private double baseTipPerBag = 1.00;
     private int bagCount;
+    private double goodRate = 0.20;
+    private double fairRate = 0.15;
+    private double poorRate = 0.10;
     private ServiceQuality serviceQuality;
 
     public BaggageServiceTipCalculator(ServiceQuality q, int bags) {
@@ -24,18 +26,18 @@ public class BaggageServiceTipCalculator implements TipCalculator{
     }
 
     @Override
-    public double calculateTip() {
+    public double getCalculatedTip() {
         double tip = 0.00; // always initialize local variables
 
         switch(serviceQuality) {
             case GOOD:
-                tip = baseTipPerBag * bagCount * (1 + GOOD_RATE);
+                tip = baseTipPerBag * bagCount * (1 + goodRate);
                 break;
             case FAIR:
-                tip = baseTipPerBag * bagCount * (1 + FAIR_RATE);
+                tip = baseTipPerBag * bagCount * (1 + fairRate);
                 break;
             case POOR:
-                tip = baseTipPerBag * bagCount * (1 + POOR_RATE);
+                tip = baseTipPerBag * bagCount * (1 + poorRate);
                 break;
         }
 
@@ -77,21 +79,49 @@ public class BaggageServiceTipCalculator implements TipCalculator{
         this.baseTipPerBag = baseTipPerBag;
     }
 
-    public static double getMinBill() {
+    public double getMinBill() {
         return minBill;
     }
 
-    public static void setMinBill(double minBill) {
-        BaggageServiceTipCalculator.minBill = minBill;
+    public void setMinBill(double minBill) {
+        this.minBill = minBill;
     }
 
-    public static double getMaxBill() {
+    public double getMaxBill() {
         return maxBill;
     }
 
-    public static void setMaxBill(double maxBill) {
-        BaggageServiceTipCalculator.maxBill = maxBill;
+    public void setMaxBill(double maxBill) {
+        this.maxBill = maxBill;
     }
+
+    public double getGoodRate() {
+        return goodRate;
+    }
+
+    public void setGoodRate(double goodRate) {
+        this.goodRate = goodRate;
+    }
+
+    public double getFairRate() {
+        return fairRate;
+    }
+
+    public void setFairRate(double fairRate) {
+        this.fairRate = fairRate;
+    }
+
+    public double getPoorRate() {
+        return poorRate;
+    }
+
+    public void setPoorRate(double poorRate) {
+        this.poorRate = poorRate;
+    }
+
+
+
+
 
     
 }
