@@ -4,13 +4,11 @@ package dip.lab1;
  * A simple implementation sub-class of Employee. These are low-level classes
  * in the DIP. Does it meet the rules of DIP? If not fix it.
  *
- * @author your name goes here
+ * @author mdufek1
  */
 public class SalariedEmployee implements Employee{
     private double annualSalary;
     private double annualBonus;
-    /** default constructor. Is this the best way to go? */
-    public SalariedEmployee() {}
 
     /**
      * Convenience constructor. Is this the best way to go?
@@ -21,10 +19,6 @@ public class SalariedEmployee implements Employee{
         setAnnualSalary(annualSalary);
         setAnnualBonus(annualBonus);
     }
-    
-        
-
-
     /**
      * Returns annual bonus for salaried workers. Is this polymorphic?
      * Could it be? Does it belong here?
@@ -59,8 +53,25 @@ public class SalariedEmployee implements Employee{
         this.annualSalary = annualSalary;
     }
 
-    public double getAnnualWages() {
-        return annualBonus+annualSalary;
+    @Override
+    public double getWages(TimePeriod time) {
+        double wages = 0.00;
+
+        switch(time) {
+            case ANNUALLY:
+                wages = annualBonus+annualSalary;
+                break;
+            case MONTHLY:
+                wages = (annualSalary)/12;
+                break;
+            case WEEKLY:
+                wages = (annualSalary)/(365/7);
+                break;
+        }
+
+        return wages;
     }
+
+
     
 }

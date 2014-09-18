@@ -24,10 +24,11 @@ public class Startup {
         TipCalculator calculator = new FoodServiceTipCalculator(ServiceQuality.FAIR,27.59);
 //        TipCalculator calculator = new BaggageServiceTipCalculator(ServiceQuality.GOOD, 4);
         TipCalculationService calculationService = new TipCalculationService(calculator);
-        ((FoodServiceTipCalculator)calculator).setMinBill(29.00);
-        ((FoodServiceTipCalculator)calculator).setBill(28.00);
-        System.out.println(((FoodServiceTipCalculator)calculator).getMinBill());
-        calculationService.processTip(calculator);
+//        ((FoodServiceTipCalculator)calculator).setMinBill(29.00);
+//        ((FoodServiceTipCalculator)calculator).setBill(28.00);
+//        System.out.println(((FoodServiceTipCalculator)calculator).getMinBill());
+       NumberFormat nf = NumberFormat.getCurrencyInstance();
+        System.out.println(nf.format(calculationService.processTip(calculator)));
 
         
     }

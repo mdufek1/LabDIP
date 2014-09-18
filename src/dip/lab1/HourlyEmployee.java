@@ -9,8 +9,6 @@ package dip.lab1;
 public class HourlyEmployee implements Employee {
     private double hourlyRate;
     private double totalHrsForYear;
-    /** default constructor. Is this the best way to go? */
-    public HourlyEmployee() {}
 
     /**
      * Convenience constructor. Is this the best way to go?
@@ -50,7 +48,24 @@ public class HourlyEmployee implements Employee {
         this.totalHrsForYear = totalHrsForYear;
     }
     
-    public double getAnnualWages() {
-        return hourlyRate * totalHrsForYear;
+
+    @Override
+    public double getWages(TimePeriod time) {
+        double wages = 0.00;
+
+        switch(time) {
+            case ANNUALLY:
+                wages = hourlyRate * totalHrsForYear;
+                break;
+            case MONTHLY:
+                wages = (hourlyRate * totalHrsForYear)/12;
+                break;
+            case WEEKLY:
+                wages = (hourlyRate * totalHrsForYear)/(365/7);
+                break;
+        }
+
+        return wages;
     }
+
 }

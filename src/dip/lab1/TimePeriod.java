@@ -7,8 +7,8 @@ package dip.lab1;
 
 /**
  *
- * @author Mike
+ * @author mdufek1
  */
-public interface Employee {
-    public abstract double getWages(TimePeriod time);
+public enum TimePeriod {
+    ANNUALLY, MONTHLY, WEEKLY
 }

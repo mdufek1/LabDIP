@@ -20,7 +20,7 @@ public class TipCalculationService {
     public TipCalculationService() {
     }
 
-    public void processTip(TipCalculator calculator){
-        System.out.println(calculator.getCalculatedTip());
+    public double processTip(TipCalculator calculator){
+        return calculator.getCalculatedTip();
     }
 }
